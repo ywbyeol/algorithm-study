@@ -1,0 +1,1 @@
+process.stdin.on('data', i => console.log(Math.ceil(Number(i.toString()) / 5)));
