@@ -1,4 +1,10 @@
 process.stdin.on('data', i => {
-  const [A, B] = i.toString().trim().split('\n').map(Number);
-  console.log(B - A);
+  console.log(
+    i
+      .toString()
+      .trim()
+      .split('\n')
+      .map(Number)
+      .reduce((a, b) => b - a),
+  );
 });
