@@ -1,15 +1,15 @@
-const fs = require('fs');
-const input = fs
-  .readFileSync('/dev/stdin')
-  .toString()
-  .trim()
-  .split('\n')
-  .map(Number);
-input.pop();
-let answer = '';
-for (let i = 0; i < input.length; i++) {
-  answer += `Objects weighing ${input[i].toFixed(2)} on Earth will weigh ${(
-    input[i] * 0.167
-  ).toFixed(2)} on the moon.\n`;
-}
-console.log(answer.trim());
+process.stdin.on('data', i => {
+  let answer = '';
+  i.toString()
+    .trim()
+    .split('\n')
+    .slice(0, -1)
+    .map(Number)
+    .forEach(
+      n =>
+        (answer += `Objects weighing ${n.toFixed(2)} on Earth will weigh ${(
+          n * 0.167
+        ).toFixed(2)} on the moon.\n`),
+    );
+  console.log(answer.trim());
+});
