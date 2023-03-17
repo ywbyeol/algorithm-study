@@ -1,0 +1,1 @@
+console.log(`SciComLove\n`.repeat(Number(require('fs').readFileSync('/dev/stdin', 'utf8').trim())).trim());
