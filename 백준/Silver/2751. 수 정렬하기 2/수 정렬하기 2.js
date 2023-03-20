@@ -1,12 +1,10 @@
-  const fs = require('fs');
-  const input = fs
-    .readFileSync('/dev/stdin')
-    .toString()
+console.log(
+  require('fs')
+    .readFileSync('/dev/stdin', 'utf8')
     .trim()
     .split('\n')
-    .map(BigInt);
-  const input_copy = [...input];
-  input_copy.shift();
-  input_copy.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
-  const input_sorted = input_copy.join('\n');
-  console.log(input_sorted);
+    .slice(1)
+    .map(Number)
+    .sort((a, b) => a - b)
+    .join('\n'),
+);
