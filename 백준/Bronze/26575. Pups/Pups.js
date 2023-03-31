@@ -1,0 +1,1 @@
+console.log(require('fs').readFileSync('/dev/stdin', 'utf8').trim().split('\n').slice(1).map(s =>`$${s.split(' ').reduce((a, b) => a * +b, 1).toFixed(2)}`).join('\n'));
