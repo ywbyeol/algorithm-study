@@ -1,0 +1,1 @@
+console.log((t = require('fs').readFileSync('/dev/stdin', 'utf8').trim().split`\n`.reduce((a, b) => +a + +b)) && `${(t / 60) | 0}\n${t % 60}`);
