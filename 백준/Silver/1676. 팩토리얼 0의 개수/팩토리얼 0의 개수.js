@@ -1,13 +1,7 @@
-const fac = N => {
-  let res = 1n;
-  for (let i = 2n; i <= BigInt(N); i++) {
-    res *= i;
-  }
-  return res;
-};
-const val = fac(+`${require('fs').readFileSync('/dev/stdin')}`.trim())
-  .toString()
-  .split(/[^0]+/g)
-  .filter(x => x !== '')
-  .at(-1)?.length;
-console.log(val === undefined ? 0 : val);
+let n = +`${require('fs').readFileSync('/dev/stdin')}`.trim();
+let ans = 0;
+while (n > 0) {
+  n = Math.floor(n / 5);
+  ans += n;
+}
+console.log(ans);
