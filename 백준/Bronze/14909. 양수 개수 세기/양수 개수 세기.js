@@ -1,0 +1,1 @@
+console.log(`${require('fs').readFileSync(0)}`.trim().split(' ').filter(n => +n > 0).length);
