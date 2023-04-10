@@ -1,0 +1,1 @@
+console.log(Math.log2(+`${require('fs').readFileSync(0)}`.trim()) % 1 === 0 ? 1 : 0);
