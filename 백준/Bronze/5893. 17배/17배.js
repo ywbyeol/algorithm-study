@@ -1,0 +1,1 @@
+console.log((BigInt(`0b${require('fs').readFileSync(0)}`.trim()) * 17n).toString(2));
