@@ -1,0 +1,1 @@
+console.log(+`${require('fs').readFileSync(0)}`.trim() * 4);
