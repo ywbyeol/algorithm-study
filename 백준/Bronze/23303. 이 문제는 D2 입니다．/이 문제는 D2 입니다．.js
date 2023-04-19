@@ -1,0 +1,1 @@
+console.log(`${require('fs').readFileSync(0)}`.trim().match(/D2/gi) === null ? 'unrated' : 'D2');
