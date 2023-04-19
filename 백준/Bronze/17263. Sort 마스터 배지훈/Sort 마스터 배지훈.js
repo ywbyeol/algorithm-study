@@ -1,0 +1,1 @@
+console.log(Math.max(...`${require('fs').readFileSync(0)}`.trim().split('\n')[1].split(' ').map(Number)));
