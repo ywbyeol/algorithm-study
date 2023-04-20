@@ -1,0 +1,1 @@
+console.log(`${require('fs').readFileSync(0)}`.trim().split('\n').includes('anj') ? '뭐야;' : '뭐야?');
