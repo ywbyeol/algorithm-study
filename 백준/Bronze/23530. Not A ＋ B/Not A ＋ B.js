@@ -1,0 +1,1 @@
+console.log(`${require('fs').readFileSync(0)}`.trim().split('\n').slice(1).map(() => 1).join('\n'));
