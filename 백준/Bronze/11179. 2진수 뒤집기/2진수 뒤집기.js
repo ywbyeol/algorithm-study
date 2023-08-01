@@ -1,0 +1,1 @@
+console.log(parseInt([...`${(+require('fs').readFileSync(0)).toString(2)}`].reverse().join(''), 2));
