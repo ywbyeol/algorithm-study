@@ -1,0 +1,2 @@
+const f = l => `${l.split(' ')[0]} ${+l.split(' ')[1] > 17 || l.split(' ')[2] > 79 ? 'Senior' : 'Junior'}`;
+console.log(`${require('fs').readFileSync(0)}`.trim().split('\n').slice(0, -1).map(f).join('\n'));
