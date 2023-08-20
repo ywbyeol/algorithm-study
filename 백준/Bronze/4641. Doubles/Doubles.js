@@ -1,0 +1,2 @@
+const f = l => l.split(' ').map(Number).sort((a, b) => a - b).filter((v, i, a) => a.includes(v * 2, i + 1)).length;
+console.log(`${require('fs').readFileSync(0)}`.trim().split('\n').slice(0, -1).map(f).join('\n'));
