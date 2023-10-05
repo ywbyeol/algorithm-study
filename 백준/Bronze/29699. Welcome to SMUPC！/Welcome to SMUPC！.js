@@ -1,0 +1,1 @@
+console.log('WelcomeToSMUPC'[(+`${require('fs').readFileSync(0)}` - 1) % 14]);
