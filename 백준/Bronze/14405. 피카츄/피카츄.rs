@@ -1,6 +1,6 @@
 fn main() {
     let i = std::io::read_to_string(std::io::stdin()).unwrap();
-    let mut c = i.trim().chars().peekable();
+    let mut c = i.trim().chars();
     while let Some(v) = c.next() {
         let mut f = |v| c.next() == Some(v);
         match v {
