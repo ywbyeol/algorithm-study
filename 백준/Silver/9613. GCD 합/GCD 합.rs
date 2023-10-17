@@ -7,9 +7,7 @@ fn main() {
 fn f(s: &str) {
     let v: Vec<u64> = s.split(" ").skip(1).map(|n| n.parse().unwrap()).collect();
     let mut c = 0;
-    for i in 0..v.len() {
-        ((i + 1)..v.len()).for_each(|j| c += g(v[i], v[j]));
-    }
+    (0..v.len()).for_each(|i| ((i + 1)..v.len()).for_each(|j| c += g(v[i], v[j])));
     println!("{}", c);
 }
 
