@@ -5,13 +5,11 @@ fn main() {
 fn f(l: String) {
     let mut s = Vec::new();
     for c in l.chars() {
-        if let Some(&'(') = s.last() {
-            if c == ')' {
-                s.pop();
-                continue;
-            }
+        match c {
+            '(' => s.push(c),
+            ')' if s.pop() != Some('(') => s.push(')'),
+            _ => {}
         }
-        s.push(c);
     }
     println!("{}", if s.is_empty() { "YES" } else { "NO" });
 }
