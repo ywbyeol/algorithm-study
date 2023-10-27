@@ -1,10 +1,12 @@
 use std::collections::BTreeMap;
+use std::io::{self, Write};
 
 fn main() {
     let mut t = T { r: N::n(None) };
-    let l = std::io::stdin().lines().skip(1);
+    let l = io::stdin().lines().skip(1);
     l.for_each(|l| t.p(&l.unwrap()));
-    t.r.s(0);
+    let mut o = io::BufWriter::new(io::stdout().lock());
+    t.r.s(0, &mut o);
 }
 
 struct N {
@@ -26,11 +28,11 @@ impl N {
             .or_insert(N::n(Some(n.to_string())))
     }
 
-    fn s(&self, d: usize) {
+    fn s(&self, d: usize, o: &mut dyn Write) {
         if let Some(ref n) = &self.n {
-            println!("{:w$}{}", "", n, w = d - 1);
+            writeln!(o, "{:w$}{}", "", n, w = d - 1).unwrap();
         }
-        self.c.iter().for_each(|(_, c)| c.s(d + 1));
+        self.c.iter().for_each(|(_, c)| c.s(d + 1, o));
     }
 }
 
