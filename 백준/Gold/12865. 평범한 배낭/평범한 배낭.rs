@@ -3,15 +3,18 @@ fn main() {
     let mut s = s.split_whitespace().map(|n| n.parse().unwrap());
     let mut r = || s.next().unwrap();
     let (n, k) = (r(), r());
-    let mut d = vec![vec![0; k + 1]; n + 1];
-    for i in 1..=n {
+    let mut d = vec![0; k + 1];
+    for _ in 0..n {
         let (w, v) = (r(), r());
-        for j in 0..=k {
-            d[i][j] = d[i - 1][j];
-            if w <= j {
-                d[i][j] = d[i][j].max(d[i - 1][j - w] + v)
+        if w > k {
+            continue;
+        }
+        for j in (0..=k - w).rev() {
+            if d[j] != 0 {
+                d[j + w] = d[j + w].max(d[j] + v);
             }
         }
+        d[w] = d[w].max(v);
     }
-    println!("{}", d[n][k]);
+    println!("{}", d.into_iter().fold(0, |a, b| a.max(b)));
 }
