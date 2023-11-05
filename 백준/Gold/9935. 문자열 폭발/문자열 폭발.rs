@@ -3,10 +3,8 @@ fn main() {
     let (s, e, mut v) = (l(), l(), String::new());
     for c in s.chars() {
         v.push(c);
-        if v.len() >= e.len() {
-            if &v[v.len() - e.len()..] == e {
-                v.drain(v.len() - e.len()..);
-            }
+        if v.len() >= e.len() && &v[v.len() - e.len()..] == e {
+            v.drain(v.len() - e.len()..);
         }
     }
     println!("{}", if v.is_empty() { "FRULA" } else { &v })
