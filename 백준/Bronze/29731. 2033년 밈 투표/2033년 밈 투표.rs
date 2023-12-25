@@ -9,13 +9,8 @@ const R: [&str; 7] = [
 ];
 
 fn main() {
-    let r: Vec<_> = R.iter().map(|l| format!("Never gonna {}", l)).collect();
-    let i = std::io::stdin().lines().skip(1).map(|v| v.unwrap());
-    let mut b = false;
-    for l in i {
-        if !r.contains(&l) {
-            b = true;
-        }
-    }
-    println!("{}", if b { "Yes" } else { "No" });
+    let r = Vec::from_iter(R.iter().map(|l| format!("Never gonna {}", l)));
+    let mut i = std::io::stdin().lines().skip(1).flatten();
+    let b = i.all(|l| r.contains(&l));
+    print!("{}", if b { "No" } else { "Yes" });
 }
