@@ -10,15 +10,13 @@ fn main() {
     a.sort_unstable();
     let mut o = io::BufWriter::new(io::stdout());
     for d in s {
-        let _ = match match a.binary_search_by(|e| match e.cmp(&d) {
+        let r = match a.binary_search_by(|e| match e.cmp(&d) {
             Equal => Greater,
             o => o,
         }) {
-            Ok(i) | Err(i) if a.get(i) == Some(&d) => Ok(i),
-            Ok(i) | Err(i) => Err(i),
-        } {
-            Ok(i) => writeln!(o, "{}", i),
-            Err(_) => writeln!(o, "-1"),
+            Ok(i) | Err(i) if a.get(i) == Some(&d) => i as i32,
+            _ => -1,
         };
+        writeln!(o, "{}", r).unwrap();
     }
 }
