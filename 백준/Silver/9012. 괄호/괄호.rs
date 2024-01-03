@@ -1,5 +1,5 @@
 fn main() {
-    std::io::stdin().lines().skip(1).for_each(|l| f(l.unwrap()));
+    std::io::stdin().lines().skip(1).flatten().for_each(f);
 }
 
 fn f(l: String) {
